@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Colas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="Estilos.css">
+
+        <!-- p5.js -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5"></script>
+    </head>
+    <body>
+
+        <article>
+            <h1>Colas con restricciones</h1>
+            <p>El siguiente es un programa de colas con restricciones; la aplicación es de un cajero que atiende la cola de un banco, cada nodo es un cliente y los números en los nodos son los recibos que el cliente pagara en el banco. Si el cliente lleva más de tres recibos, solo se atenderán tres y deberá volver al final de la cola, si lleva menos se atenderá y se ira (ósea desaparecerá de la cola).</p>
+            <p><strong>Instrucciones:</strong> en el recuadro podrá ingresar la cantidad de recibos de un nuevo cliente, posteriormente deberá dar clic en el botón agregar para añadir el nuevo cliente a la cola. Con el botón atender se atenderá los clientes en la cola, teniendo en cuenta las restricciones de la misma.</p>
+
+            <input id="ingreso" type="number" placeholder="cliente" />
+            <button id="agregar">Agregar</button><br/>
+            <button id="atender">Atender</button>
+
+            <div id="my-canvas"></div>
+        </article>
+
+        <script type="text/javascript">
+
+            function atender() {
+                var post = {"ruta": ""};
+                var arreglo = post.data;
+                return arreglo;
+            }
+
+            function agregar(numero) {
+                var post = {"ruta2": numero};
+                var arreglo = post.data;
+            }
+
+            var numero = document.getElementById("ingreso");
+            var btnAgregar = document.getElementById("agregar");
+            var btnAtender = document.getElementById("atender");
+
+            btnAgregar.addEventListener("click", function () {
+                console.log("agregar");
+            });
+
+            btnAtender.addEventListener("click", function () {
+                console.log("atender");
+            });
+
+            // var arreglo = atender();
+            var arreglo = [1,2,3,4,5,6];
+            
+            console.log(arreglo);
+
+            var activo = false;
+            var posVendedorX = 50;
+            var posVendedorY = 100;
+            var posX = 500;
+
+            let sketch = function (lienzo) {
+
+                lienzo.setup = function () {
+                    this.createCanvas(500, 400);
+                    this.background(240);
+                    this.frameRate(1);
+                }
+
+                lienzo.draw = function () {
+                    lienzo.background(240);
+                    lienzo.fill("#2196F3");
+                    lienzo.ellipse(posVendedorX, posVendedorY, 50, 50);
+
+                    for (var i = 1; i < arreglo.length; i++) {
+                        lienzo.fill(255);
+                        lienzo.ellipse(posVendedorX + 65 * i, posVendedorY, 50, 50);
+                        lienzo.fill(0);
+                        lienzo.text("" + arreglo[i - 1], posVendedorX + 65 * i, posVendedorY);
+                    }
+                }
+            }
+
+            var lienzo = document.getElementById('my-canvas');
+            new p5(sketch, lienzo);
+        </script>
+    </body>
+</html>

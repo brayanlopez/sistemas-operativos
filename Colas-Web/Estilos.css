@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 09/12/2019, 05:09:00 PM
+    Author     : Brayan Lopez
+*/
+/*---Estilos generales---*/
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+
+    margin: auto;
+    max-width:800px;
+}
+
+article h1{
+    margin: 15px;
+    font-size: 30px;
+    font-family: serif;
+}
+
+article p{
+    margin: 15px 0px 5px 0px;
+    text-indent: 25px;
+    text-align: justify;
+}
+
+button{
+    min-height: 30px;
+    min-width: 60px;
+    background-color: white;
+    color: #2196F3;
+    border: 1px solid #2196F3;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px 20px;
+}
+
+#atender{
+    width: 30%;
+}
+
+button:hover{
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+}
+
+input{
+    height: 25px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+canvas{
+    border-radius: 15px; 
+}
+
+#my-canvas{
+    border: 1px solid #2196F3;
+    border-radius: 15px;
+    height: 400px;
+    width: 500px;
+    margin: 15px;
+}
